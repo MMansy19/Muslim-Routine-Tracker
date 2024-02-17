@@ -5,7 +5,12 @@ Muslim Routine Tracker is a React web application designed to help Muslims track
 
 ## [Live Link](https://muslimroutine-tracker.netlify.app/)
 
-## ![Preview](https://muslimroutine-tracker.netlify.app/)
+## Preview
+<div style="display: flex; justify-content: center;">
+  <img width="30%" src="my-react-app/public/images/muslim-routine-tracker.jpg" alt="Image 1">
+  <img width="30%" src="my-react-app/public/images/muslim-routine-tracker-2.jpg" alt="Image 2">
+  <img width="30%" src="my-react-app/public/images/muslim-routine-tracker-3.jpg" alt="Image 3">
+</div>
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -15,14 +20,6 @@ Muslim Routine Tracker is a React web application designed to help Muslims track
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Contributing Guidelines](#contributing-guidelines)
-- [Testing Instructions](#testing-instructions)
-- [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-- [Credits](#credits)
-- [License](#license)
-- [Version History](#version-history)
-- [Security Considerations](#security-considerations)
-- [Feedback and Support](#feedback-and-support)
 - [Contact](#contact)
 
 
