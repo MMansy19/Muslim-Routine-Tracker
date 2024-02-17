@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import './styles/style.css';
 import HeaderSection from './headerSection.js';
 import LoginForm from './loginSection.js';
 import BioSection from './simulateTextSection.js';

@@ -1,0 +1,147 @@
+#skills {
+  grid-template-columns: 1fr;
+  margin: auto;
+  max-width: 1400px;
+}
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+.skills__item {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  transition: var(--transition-timing);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: var(--color-background);
+  width: 100%;
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0 0.6rem transparent;
+  transition: text-shadow 0.5s;
+}
+.skills__item:hover {
+  text-shadow: 0 0 0.2rem var(--color-green);
+  transition: 1s;
+}
+
+.skill-active {
+  width: 100%;
+  background: var(--color-green-gradient);
+  border-radius: 1rem;
+  transition: 1s;
+}
+.skills__title {
+  color: var(--color-blue);
+  font-family: var(--font-family-amiri);
+
+  font-size: var(--font-size-22);
+  font-weight: var(--font-weight-semi-bold);
+}
+.skills__years {
+  display: inline-block;
+  font-size: var(--font-size-14);
+  text-align: center;
+}
+.skills__state {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: var(--font-size-14);
+}
+.skills__state-item {
+  border-radius: 50%;
+  padding: 0.8rem 0.8rem 0 0.8rem;
+  background-color: wheat;
+  font-size: var(--font-size-14);
+}
+/* .skills__state-done:hover {
+  background-color: rgb(182, 248, 83);
+}
+ .skills__state-notDone:hover {
+  background-color: #f76363;
+}
+.skills__state-circle:hover {
+  background-color: #976df1;
+}  */
+.done-clicked {
+  background-color: var(--color-light-green);
+}
+.circle-clicked {
+  background-color: var(--color-purple);
+}
+.not-done-clicked {
+  background-color: var(--color-red);
+}
+.delete-icon {
+  margin-left: 27%;
+  width: 25px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.skills__filters {
+  grid-column: 1/-1;
+  margin: 0 0 3rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.skills__button {
+  border: 0.01rem solid var(--color-text);
+  border-radius: 0.4rem;
+  padding: 0.2rem 1rem;
+  color: var(--color-text);
+}
+.skills__button--isActive {
+  background-color: var(--color-link-bg);
+  color: var(--color-white);
+  color: var(--color-background);
+}
+.skills__list.الصلاة li:not([data-type="الصلاة"]) {
+  display: none;
+}
+.skills__list.الذكر li:not([data-type="الذكر"]) {
+  display: none;
+}
+.skills__list.القرآن li:not([data-type="القرآن"]) {
+  display: none;
+}
+.skills__list.الدعاء li:not([data-type="الدعاء"]) {
+  display: none;
+}
+.skills__list.التعلم li:not([data-type="التعلم"]) {
+  display: none;
+}
+.skills__list.غيره li:not([data-type="غيره"]) {
+  display: none;
+}
+
+.skills__downloads {
+  position: absolute;
+  top: 5rem; /* Adjust the top distance as needed */
+  right: 2rem; /* Adjust the right distance as needed */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  transition: var(--transition-timing);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: var(--color-background);
+  font-size: var(--font-size-14);
+}
+
+.skills__downloads button {
+  color: var(--color-text);
+  padding: 1rem;
+}
