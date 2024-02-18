@@ -1,0 +1,67 @@
+form {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.contact__description {
+  font-size: var(--font-size-14);
+  line-height: 1.8;
+}
+
+.contact__email {
+  font-weight: var(--font-weight-bold);
+  margin: 1.5rem 0;
+}
+
+.contact__social {
+  transition: var(--transition-timing);
+  width: 2.5rem;
+  animation: jump-4 1s infinite alternate ease-in-out;
+  padding: 0 0.2rem;
+}
+
+.contact__social:hover {
+  transform: scale(1.2);
+}
+
+.contact__inputs {
+  flex-direction: row;
+  display: flex;
+  gap: 2rem;
+}
+
+.contact__input {
+  border: 0;
+  outline: 0;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 0.1rem solid var(--color-input-border);
+  color: var(--color-gray);
+}
+
+.border-bottom-input {
+  border-bottom: 0.1rem solid var(--color-green);
+}
+
+.contact__textarea {
+  width: 100%;
+}
+
+.contact__button {
+  border: 0;
+  background-color: var(--color-link-bg);
+  color: var(--color-white);
+  padding: 0.6rem 1.1rem;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-16);
+  margin: 3rem 0;
+  cursor: pointer;
+  border-radius: 0.03rem;
+}/*# sourceMappingURL=contact.css.map */

@@ -12,10 +12,12 @@ export default function ButtonWithCalendar() {
         <>
         
         <div
+        id="calendar"
           style={{
               display: "grid",
               justifyContent: "center",
               alignItems: "center",
+              paddingTop: "2rem",
             }}
             >
             <button className="" onClick={toggleCalendar}>

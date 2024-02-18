@@ -18,7 +18,7 @@ const HeaderSection = ({ loginFunction, linkFunction, mainFunction }) => {
             <a href="#bio" className="navigation__link navigation__bio" onClick={mainFunction}>الصفحة الرئيسية</a>
           </li>
           <li>
-            <a href="#skills" className="navigation__link navigation__skills" onClick={linkFunction}>أورادك</a>
+            <a href="#calendar" className="navigation__link navigation__skills" onClick={linkFunction}>أورادك</a>
           </li>
           <li>
             <a href="#add_skill" className="navigation__link add_skill" onClick={linkFunction}>أضف وردًا</a>

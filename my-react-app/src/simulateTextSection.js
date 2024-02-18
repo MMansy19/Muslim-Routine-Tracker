@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const BioSection = () => {
   const [dynamicText, setDynamicText] = useState('');
+  const [isVisible, setIsVisible] = useState(false); // State to manage visibility
+
     const texts = [
         'إِنَّمَا الْأَعْمَالُ بِالنِّيَاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى',
         'خَيْرُ الْأَعْمَالِ أَدْوَمُهَا وَإِنْ قَلَّ',
@@ -30,7 +32,7 @@ const BioSection = () => {
         '',
     ];
 
-  useEffect(() => {
+ useEffect(() => {
     // Shuffle the texts array
     const shuffledTexts = [...texts].sort(() => Math.random() - 0.5);
 
@@ -59,17 +61,22 @@ const BioSection = () => {
       }, interval);
     };
 
-    typeTexts();
+    // Show the component after a delay
+    const showComponent = setTimeout(() => {
+      setIsVisible(true);
+    }, 500) && setTimeout(() => {
+      typeTexts(); // Start typing text
+    }, 2000); // Adjust the delay as needed
 
-    return () => clearInterval();
+    return () => clearInterval(showComponent);
   }, []); // Only run once on component mount
 
   return (
-    <section id="bio" className="bio section">
+    <section id="bio" className={`bio section ${isVisible ? 'visible' : ''}`}>
       <h1 className="bio__heading">
         قال النبي صلى الله عليه وسلم
         <br />
-        <span className="bio__title">{dynamicText}</span>
+        <span className="bio__title dynamic__text">{dynamicText}</span>
       </h1>
     </section>
   );

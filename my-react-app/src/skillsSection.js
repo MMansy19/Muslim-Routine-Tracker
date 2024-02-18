@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { CSVLink } from 'react-csv';
 import * as XLSX from 'xlsx';
 import ButtonWithCalendar from "./components/button.js"
@@ -15,6 +15,8 @@ const SkillsSection = () => {
     const [detailsError, setDetailsError] = useState(false);
     const [typeError, setTypeError] = useState(false);
     const [filterType, setFilterType] = useState('all');
+    const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+    const [itemToDelete, setItemToDelete] = useState('');
     const [successAlert, setSuccessAlert] = useState(null);
     const [notDoneAlert, setNotDoneAlert] = useState(null);
     const [circleAlert, setCircleAlert] = useState(null);
@@ -150,34 +152,59 @@ const SkillsSection = () => {
         XLSX.writeFile(workbook, "skills.xlsx");
     };
 
-
     const handleSkillDeletion = (itemDetails) => {
+        setItemToDelete(itemDetails);
+        setConfirmDialogOpen(true);
+    };
+
+    const confirmDeletion = () => {
         // Remove skill from the array
-        setSkillsArray(prevSkills => prevSkills.filter(skill => skill.details !== itemDetails));
+        setSkillsArray(prevSkills => prevSkills.filter(skill => skill.details !== itemToDelete));
 
         // Decrement the counters for the deleted skill if its buttons were active
         setCounters(prevCounters => ({
-            done: activeButtons[itemDetails] === 'done' ? prevCounters.done - 1 : prevCounters.done,
-            notDone: activeButtons[itemDetails] === 'notDone' ? prevCounters.notDone - 1 : prevCounters.notDone,
-            circle: activeButtons[itemDetails] === 'circle' ? prevCounters.circle - 1 : prevCounters.circle
+            done: activeButtons[itemToDelete] === 'done' ? prevCounters.done - 1 : prevCounters.done,
+            notDone: activeButtons[itemToDelete] === 'notDone' ? prevCounters.notDone - 1 : prevCounters.notDone,
+            circle: activeButtons[itemToDelete] === 'circle' ? prevCounters.circle - 1 : prevCounters.circle
         }));
 
         // Remove active state for the deleted skill
         setActiveButtons(prevState => {
             const updatedState = { ...prevState };
-            delete updatedState[itemDetails];
+            delete updatedState[itemToDelete];
             return updatedState;
         });
 
         // Show deletion alert
-        setDeletionAlert(<div className="alert alert-deletion">{`تم حذف ورد`}<br />{itemDetails}</div>);
+        setDeletionAlert(
+            <div className="alert alert-deletion">
+                <span>تم حذف {itemToDelete}</span>
+            </div>
+        );
+        // Automatically dismiss the deletion alert after 3 seconds
         setTimeout(() => {
             setDeletionAlert(null);
-        }, 3000); // Remove the alert after 3 seconds
-    }
+        }, 3000);
+
+        // Close the confirm dialog
+        setConfirmDialogOpen(false);
+    };
+
+    const cancelDeletion = () => {
+        // Close the confirm dialog
+        setConfirmDialogOpen(false);
+    };
+
 
     const handleAddSkill = () => {
         addSkill(nameInput, detailsInput, typeInput, setSkillsArray, setNameError, setDetailsError, setTypeError, setSuccessAlert);
+            setTimeout(() => {
+                // Clear input fields after adding the skill
+                setNameInput('');
+                setDetailsInput('');
+                setTypeInput('');
+            }, 1000);
+
     };
 
     const handleSkillToggle = (skillName) => {
@@ -410,67 +437,79 @@ const SkillsSection = () => {
             {/* End Skills */}
 
             {/* Start Add Skill */}
-            <section id="add_skill" className="add-skill skills section section--with-bg">
-                <h2 className="h2__heading">
-                    أضف وردًا
-                    &nbsp;
-                    <img className="contact__social" src="./images/pray.png" alt="pray" width="25px" />
-                </h2>
-                <div className="card">
-                    <form id="age-form" className="card__form">
-                        <div className="card__inputContainer">
-                            <label htmlFor="day" className="card__label">الورد</label>
-                            <input
-                                id="day"
-                                name="day"
-                                type="text"
-                                className={`card__input ${nameError ? 'card__input--error' : ''}`}
-                                placeholder="القرآن"
-                                value={nameInput}
-                                onChange={(e) => setNameInput(e.target.value)}
-                            />
-                            {nameError && <span className="card__errorMessage">رجاء اكتب اسم الورد</span>}
+                <section id="add_skill" className="add-skill skills section section--with-bg">
+                    <h2 className="h2__heading">
+                        أضف وردًا
+                        &nbsp;
+                        <img className="contact__social" src="./images/pray.png" alt="pray" width="25px" />
+                    </h2>
+                    <div className="card">
+                        <form id="age-form" className="card__form">
+                            <div className="card__inputContainer">
+                                <label htmlFor="day" className="card__label">الورد</label>
+                                <input
+                                    id="day"
+                                    name="day"
+                                    type="text"
+                                    className={`card__input ${nameError ? 'card__input--error' : ''}`}
+                                    placeholder="القرآن"
+                                    value={nameInput}
+                                    onChange={(e) => setNameInput(e.target.value)}
+                                    // onFocus={() => inputName?.classList.add('border-blue')}
+                                    // onBlur={() => inputName?.classList.remove('border-blue', 'border-red')}
+                                    // ref={inputName}
+
+                                />
+                                {nameError && <span className="card__errorMessage">رجاء اكتب اسم الورد</span>}
+                            </div>
+                            <div className="card__inputContainer">
+                                <label htmlFor="month" className="card__label">تفاصيل الورد</label>
+                                <input
+                                    id="month"
+                                    name="month"
+                                    type="text"
+                                    className={`card__input ${detailsError ? 'card__input--error' : ''}`}
+                                    placeholder="قراءة حزب من كتاب الله"
+                                    value={detailsInput}
+                                    onChange={(e) => setDetailsInput(e.target.value)}
+                                    />
+                                {detailsError && <span className="card__errorMessage">رجاء كتابة تفاصيل الورد</span>}
+                            </div>
+                            <div className="card__inputContainer">
+                                <label htmlFor="year" className="card__label">النوع</label>
+                                <select
+                                    id="year"
+                                    name="year"
+                                    className={`input__type card__input ${typeError ? 'card__input--error' : ''}`}
+                                    value={typeInput}
+                                    onChange={(e) => setTypeInput(e.target.value)}
+                                    >
+                                    <option value="">اختر نوع الورد</option>
+                                    <option value="الصلاة">الصلاة</option>
+                                    <option value="القرآن">القرآن</option>
+                                    <option value="الذكر">الذكر</option>
+                                    <option value="الدعاء">الدعاء</option>
+                                    <option value="التعلم">التعلم</option>
+                                    <option value="غيره">غيره</option>
+                                </select>
+                                {typeError && <span className="card__errorMessage">رجاء كتابة نوع الورد</span>}
+                            </div>
+                        </form>
+                        <div className="card__separator">
+                            <button className="card__button" onClick={handleAddSkill}>إضافة</button>
                         </div>
-                        <div className="card__inputContainer">
-                            <label htmlFor="month" className="card__label">تفاصيل الورد</label>
-                            <input
-                                id="month"
-                                name="month"
-                                type="text"
-                                className={`card__input ${detailsError ? 'card__input--error' : ''}`}
-                                placeholder="قراءة حزب من كتاب الله"
-                                value={detailsInput}
-                                onChange={(e) => setDetailsInput(e.target.value)}
-                            />
-                            {detailsError && <span className="card__errorMessage">رجاء كتابة تفاصيل الورد</span>}
-                        </div>
-                        <div className="card__inputContainer">
-                            <label htmlFor="year" className="card__label">النوع</label>
-                            <select
-                                id="year"
-                                name="year"
-                                className={`input__type card__input ${typeError ? 'card__input--error' : ''}`}
-                                value={typeInput}
-                                onChange={(e) => setTypeInput(e.target.value)}
-                            >
-                                <option value="">اختر نوع الورد</option>
-                                <option value="الصلاة">الصلاة</option>
-                                <option value="القرآن">القرآن</option>
-                                <option value="الذكر">الذكر</option>
-                                <option value="الدعاء">الدعاء</option>
-                                <option value="التعلم">التعلم</option>
-                                <option value="غيره">غيره</option>
-                            </select>
-                            {typeError && <span className="card__errorMessage">رجاء كتابة نوع الورد</span>}
-                        </div>
-                    </form>
-                    <div className="card__separator">
-                        <button className="card__button" onClick={handleAddSkill}>إضافة</button>
                     </div>
-                </div>
-            </section>
+                </section>
             {/* End Add Skill */}
 
+            {deletionAlert}
+            {confirmDialogOpen &&
+                <div className="confirm-dialog">
+                    <p>هل أنت متأكد من حذف <br/> {itemToDelete}؟</p>
+                    <button onClick={confirmDeletion}>نعم</button>
+                    <button className="cancel" onClick={cancelDeletion}>إلغاء</button>
+                </div>
+            }
             {/* Success Alert */}
             {successAlert}
             {/* Deletion Alert */}
