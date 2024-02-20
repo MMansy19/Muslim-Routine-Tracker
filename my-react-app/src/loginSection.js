@@ -1,11 +1,11 @@
-const LoginForm = () => {
+const LoginForm = ({showLogin , showRegistration}) => {
 
 
   return (
     <section className="add-skill skills section section--with-bg login_section">
 
       {/* Start register */}
-      <div className='card card-register'>
+      {showRegistration && <div  id="register" className='card card-register'>
         <h1 className="bio__heading">
         مستخدم جديد؟
         <br />
@@ -39,12 +39,12 @@ const LoginForm = () => {
             </div>
           </fieldset>
         </form>
-      </div>
+      </div>}
       {/* End register */}
 
 
       {/* Start login */}
-      <div className='card card-login'>
+      {showLogin && <div id="login" className='card card-login'>
         <h1 className="bio__heading">
           أهلا بك من جديد!
           <br />
@@ -72,7 +72,7 @@ const LoginForm = () => {
             </div>
           </div>
         </form>
-      </div>
+      </div>}
       {/* End login */}
 
     </section>

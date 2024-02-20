@@ -1,5 +1,12 @@
 
-const HeaderSection = ({ loginFunction, linkFunction, mainFunction }) => {
+const HeaderSection = ({ loginFunction, registrationFunction, skillsFunction, addSkillFunction, contactFunction, mainFunction }) => {
+    const handleNavigationClick = () => {
+    const checkbox = document.getElementById('menu');
+    setTimeout(() => {
+      checkbox.checked = false;
+    }, 500); // Adjust the delay as needed
+  };
+
   return (
     <header id="header" className="header">
       <label className="burger-menu" htmlFor="menu">
@@ -12,19 +19,22 @@ const HeaderSection = ({ loginFunction, linkFunction, mainFunction }) => {
       <nav className="navigation">
         <ul className="navigation__list">
           <li>
-            <a href="#header" id="login" className="navigation__link navigation__login" onClick={loginFunction}>تسجيل الدخول</a>
+            <a href="#bio" className="navigation__link navigation__bio" onClick={() => { mainFunction(); handleNavigationClick(); }}>الصفحة الرئيسية</a>
           </li>
           <li>
-            <a href="#bio" className="navigation__link navigation__bio" onClick={mainFunction}>الصفحة الرئيسية</a>
+            <a href="#login" className="navigation__link navigation__login" onClick={() => { loginFunction(); handleNavigationClick(); }}>تسجيل الدخول</a>
           </li>
           <li>
-            <a href="#calendar" className="navigation__link navigation__skills" onClick={linkFunction}>أورادك</a>
+            <a href="#register" className="navigation__link navigation__login" onClick={() => { registrationFunction(); handleNavigationClick(); }}>إنشاء حساب</a>
           </li>
           <li>
-            <a href="#add_skill" className="navigation__link add_skill" onClick={linkFunction}>أضف وردًا</a>
+            <a href="#calendar" className="navigation__link navigation__skills" onClick={() => { skillsFunction(); handleNavigationClick(); }}>أورادك</a>
           </li>
           <li>
-            <a href="#contact" className="navigation__link navigation__contact" onClick={linkFunction}>التواصل</a>
+            <a href="#add_skill" className="navigation__link add_skill" onClick={() => { addSkillFunction(); handleNavigationClick(); }}>أضف وردًا</a>
+          </li>
+          <li>
+            <a href="#contact" className="navigation__link navigation__contact" onClick={() => { contactFunction(); handleNavigationClick(); }}>التواصل</a>
           </li>
         </ul>
       </nav>

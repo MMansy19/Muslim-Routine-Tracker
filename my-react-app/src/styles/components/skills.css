@@ -21,7 +21,7 @@
 /* End of PROGRESS LINE */
 #skills {
   grid-template-columns: 1fr;
-  margin: auto;
+  margin: 0 auto 10rem;
   max-width: 1400px;
 }
 

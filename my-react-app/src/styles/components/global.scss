@@ -59,6 +59,7 @@
   --font-size-16: 1.6rem;
   --font-size-15: 1.5rem;
   --font-size-14: 1.4rem;
+  --font-size-12: 1.2rem;
   --transition-timing: 0.3s;
 }
 * {
@@ -116,9 +117,9 @@ body {
   opacity: 0.08;
 }
 .section {
+  margin: 0 0 7rem 0;
   position: relative;
   display: grid;
-  margin: 5rem 0 7rem 0;
   grid-template-columns: repeat(2, auto);
   align-items: start;
   transform: translateY(1rem);

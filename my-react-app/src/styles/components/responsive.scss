@@ -43,6 +43,9 @@
 
 /* Adjustments for responsiveness */
 @media screen and (max-width: 768px) {
+  .section {
+    margin-top: 5rem;
+  }
   .skills__downloads {
     top: 70px;
     right: 10px;
@@ -58,7 +61,7 @@
   }
   /* PROGRESS LINE */
   .progress-line-container {
-    top: 8.5rem;
+    top: 8.2rem;
   }
   /* // PROGRESS LINE */
 
@@ -94,7 +97,7 @@
     width: 100vw;
     background-color: var(--color-background);
     top: 0;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-12);
     padding: 1.5rem 0;
     border-bottom: 0.1rem solid var(--color-text);
     z-index: -1;

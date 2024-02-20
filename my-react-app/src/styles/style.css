@@ -60,6 +60,7 @@
   --font-size-16: 1.6rem;
   --font-size-15: 1.5rem;
   --font-size-14: 1.4rem;
+  --font-size-12: 1.2rem;
   --transition-timing: 0.3s;
 }
 
@@ -123,9 +124,9 @@ body {
 }
 
 .section {
+  margin: 0 0 7rem 0;
   position: relative;
   display: grid;
-  margin: 5rem 0 7rem 0;
   grid-template-columns: repeat(2, auto);
   align-items: start;
   transform: translateY(1rem);
@@ -273,7 +274,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
 .navigation__link:hover,
 .navigation__link:active {
   text-decoration: underline;
-  color: var(--color-blue);
+  color: var(--color-light-blue);
 }
 
 .container:has(.login:target) .navigation__login,
@@ -282,7 +283,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
 .container:has(.add_skill:target) .add_skill,
 .container:has(.remove_skill:target) .remove_skill,
 .container:has(.contact:target) .navigation__contact {
-  color: var(--color-blue);
+  color: var(--color-light-blue);
   text-decoration: underline;
   font-weight: var(--font-weight-bold);
 }
@@ -367,6 +368,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
   font-size: var(--font-size-22);
   font-weight: var(--font-weight-bold);
   transform: translateY(-8rem);
+  margin-top: 5rem;
 }
 
 .visible {
@@ -453,7 +455,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
 /* End of PROGRESS LINE */
 #skills {
   grid-template-columns: 1fr;
-  margin: auto;
+  margin: 0 auto 10rem;
   max-width: 1400px;
 }
 
@@ -845,7 +847,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
+  margin: 5rem auto;
 }
 
 .contact__description {
@@ -943,6 +945,9 @@ form {
 }
 /* Adjustments for responsiveness */
 @media screen and (max-width: 768px) {
+  .section {
+    margin-top: 5rem;
+  }
   .skills__downloads {
     top: 70px;
     right: 10px;
@@ -957,7 +962,7 @@ form {
   }
   /* PROGRESS LINE */
   .progress-line-container {
-    top: 8.5rem;
+    top: 8.2rem;
   }
   /* // PROGRESS LINE */
   .burger-menu {
@@ -992,7 +997,7 @@ form {
     width: 100vw;
     background-color: var(--color-background);
     top: 0;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-12);
     padding: 1.5rem 0;
     border-bottom: 0.1rem solid var(--color-text);
     z-index: -1;

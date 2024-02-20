@@ -5,7 +5,7 @@ import ButtonWithCalendar from "./components/button.js"
 import ProgressLine from "./components/progress.js";
 import addSkill from "./components/addSkill.js";
 
-const SkillsSection = () => {
+const SkillsSection = ({ showAddSkill , showSkills }) => {
     const [skillsArray, setSkillsArray] = useState([]);
     const [showOptions, setShowOptions] = useState(false);
     const [nameInput, setNameInput] = useState('');
@@ -350,18 +350,16 @@ const SkillsSection = () => {
 
 
              {/* Start Day Picker (calender) */}
-             <ProgressLine progress={((counters.done + counters.circle)/skillsArray.length)*100}/>
+             {showSkills && <ProgressLine progress={((counters.done + counters.circle)/skillsArray.length)*100}/>}
              {/* End Day Picker (calender) */}
 
              {/* Start Day Picker (calender) */}
-                    <br/>
-                   {/* <h1 className="bio__heading">اختر يوما 
-                   </h1> */}
-             <ButtonWithCalendar/>
+                    {showSkills && <br/>}
+             {showSkills && <ButtonWithCalendar/>}
              {/* End Day Picker (calender) */}
 
              {/* Start Skills */}
-            <section id="skills" className="skills section ">
+            {showSkills && <section  id="skills" className="skills section ">
                 <h2 className="h2__heading">
                     أورادك
                     <br/>
@@ -433,11 +431,11 @@ const SkillsSection = () => {
                     {skillItems}
                 </ul>
 
-            </section>
+            </section>}
             {/* End Skills */}
 
             {/* Start Add Skill */}
-                <section id="add_skill" className="add-skill skills section section--with-bg">
+                {showAddSkill && <section  id="add_skill" className="add-skill skills section section--with-bg">
                     <h2 className="h2__heading">
                         أضف وردًا
                         &nbsp;
@@ -499,7 +497,7 @@ const SkillsSection = () => {
                             <button className="card__button" onClick={handleAddSkill}>إضافة</button>
                         </div>
                     </div>
-                </section>
+                </section>}
             {/* End Add Skill */}
 
             {deletionAlert}

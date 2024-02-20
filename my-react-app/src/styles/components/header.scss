@@ -34,7 +34,7 @@
 .navigation__link:hover,
 .navigation__link:active {
   text-decoration: underline;
-  color: var(--color-blue);
+  color: var(--color-light-blue);
 }
 .container:has(.login:target) .navigation__login,
 .container:has(.bio:target) .navigation__bio,
@@ -42,7 +42,7 @@
 .container:has(.add_skill:target) .add_skill,
 .container:has(.remove_skill:target) .remove_skill,
 .container:has(.contact:target) .navigation__contact {
-  color: var(--color-blue);
+  color: var(--color-light-blue);
   text-decoration: underline;
   font-weight: var(--font-weight-bold);
 }

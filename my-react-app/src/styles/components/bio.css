@@ -13,6 +13,7 @@
   font-size: var(--font-size-22);
   font-weight: var(--font-weight-bold);
   transform: translateY(-8rem);
+  margin-top: 5rem;
 }
 
 .visible {

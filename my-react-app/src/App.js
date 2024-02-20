@@ -8,35 +8,64 @@ import ContactSection from './contactSection.js';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegistration, setShowRegistration] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
+  const [showAddSkill, setShowAddSkill] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showBio, setShowBio] = useState(true);
 
   const loginFunction = () => {
     setShowLogin(true);
+    setShowRegistration(false);
     setShowSkills(false);
     setShowContact(false);
     setShowBio(false);
-    
   };
-  const linkFunction = () => {
+  const registrationFunction = () => {
     setShowLogin(false);
-    setShowSkills(true);
-    setShowContact(true);
+    setShowRegistration(true);
+    setShowSkills(false);
+    setShowContact(false);
     setShowBio(false);
+  };
+  const skillsFunction = () => {
+    setShowLogin(false);
+    setShowRegistration(false);
+    setShowBio(false);
+    setShowSkills(true);
+    setShowAddSkill(false);
+    setShowContact(false);
+  };
+  const addSkillFunction = () => {
+    setShowLogin(false);
+    setShowRegistration(false);
+    setShowBio(false);
+    setShowSkills(false);
+    setShowAddSkill(true);
+    setShowContact(false);
+  };
+  const contactFunction = () => {
+    setShowLogin(false);
+    setShowRegistration(false);
+    setShowBio(false);
+    setShowSkills(false);
+    setShowAddSkill(false);
+    setShowContact(true);
   };
   const mainFunction = () => {
     setShowLogin(false);
+    setShowRegistration(false);
+    setShowBio(true);
     setShowSkills(false);
     setShowContact(false);
-    setShowBio(true);
+    setShowAddSkill(false);
   };
 
   return (
     <>
 
       {/* Start Header */}
-      <HeaderSection loginFunction={loginFunction} linkFunction={linkFunction} mainFunction={mainFunction}/>
+      <HeaderSection loginFunction={loginFunction} registrationFunction={registrationFunction} skillsFunction={skillsFunction} addSkillFunction={addSkillFunction} contactFunction={contactFunction} mainFunction={mainFunction}/>
       {/* End Header */}
 
       {/* Start Bio */}
@@ -44,11 +73,11 @@ function App() {
       {/* End Bio */}
 
       {/* Start login */}
-      {showLogin && <LoginForm showLogin={showLogin} setShowLogin={setShowLogin} />}
+      {(showLogin || showRegistration) && <LoginForm showLogin={showLogin} setShowLogin={setShowLogin} showRegistration={showRegistration} setShowRegistration={setShowRegistration} />}
       {/* End login */}
 
       {/* Start Skills Section */}
-      {showSkills && < SkillsSection showSkills={showSkills} setShowSkills={setShowSkills}/>}
+      {(showAddSkill || showSkills) && < SkillsSection showSkills={showSkills} setShowSkills={setShowSkills} showAddSkill={showAddSkill} setShowAddSkill={setShowAddSkill}/>}
       {/* End Skills Section */}
 
       {/* Start Contact */}
