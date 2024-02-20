@@ -7,13 +7,13 @@ import SkillsSection from './skillsSection.js';
 import ContactSection from './contactSection.js';
 
 function App() {
+  let checkVisibility = 0;
   const [showLogin, setShowLogin] = useState(false);
   const [showRegistration, setShowRegistration] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
   const [showAddSkill, setShowAddSkill] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showBio, setShowBio] = useState(true);
-
   const loginFunction = () => {
     setShowLogin(true);
     setShowRegistration(false);
@@ -51,6 +51,7 @@ function App() {
     setShowSkills(false);
     setShowAddSkill(false);
     setShowContact(true);
+    checkVisibility = true;
   };
   const mainFunction = () => {
     setShowLogin(false);
@@ -69,7 +70,7 @@ function App() {
       {/* End Header */}
 
       {/* Start Bio */}
-      {showBio && <BioSection showBio={showBio} setShowBio={setShowBio}/>}
+      {showBio && <BioSection showBio={showBio} setShowBio={setShowBio} />}
       {/* End Bio */}
 
       {/* Start login */}
@@ -81,7 +82,7 @@ function App() {
       {/* End Skills Section */}
 
       {/* Start Contact */}
-      {showContact && <ContactSection showContact={showContact} setShowContact={setShowContact}/>}
+      {showContact && <ContactSection showContact={showContact} setShowContact={setShowContact} checkVisibility={checkVisibility} />}
       {/* End Contact */}
 
       {/* Start Footer */}

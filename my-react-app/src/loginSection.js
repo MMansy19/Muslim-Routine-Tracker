@@ -1,11 +1,20 @@
+import ShowComponent  from "./components/showComponentFunc.js";
+import { useState } from 'react';
 const LoginForm = ({showLogin , showRegistration}) => {
+    const [isVisibleLogin, setIsVisibleLogin] = useState(false); // State to manage visibility
+    const [isVisibleRegister, setIsVisibleRegister] = useState(false); // State to manage visibility
+    
+    // Show the component after a delay
+    ShowComponent(() => {setIsVisibleLogin( showLogin? true : false );});
+    ShowComponent(() => {setIsVisibleRegister( showRegistration? true :false  );});
+
 
 
   return (
-    <section className="add-skill skills section section--with-bg login_section">
+    <section className="login_section">
 
       {/* Start register */}
-      {showRegistration && <div  id="register" className='card card-register'>
+      {showRegistration && <div  id="register" className={`card card-register ${isVisibleRegister ? 'visible' : ''}`}>
         <h1 className="bio__heading">
         مستخدم جديد؟
         <br />
@@ -44,7 +53,7 @@ const LoginForm = ({showLogin , showRegistration}) => {
 
 
       {/* Start login */}
-      {showLogin && <div id="login" className='card card-login'>
+      {showLogin && <div id="login" className={`card card-login ${isVisibleLogin ? 'visible' : ''}`}>
         <h1 className="bio__heading">
           أهلا بك من جديد!
           <br />

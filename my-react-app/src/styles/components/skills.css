@@ -25,6 +25,12 @@
   max-width: 1400px;
 }
 
+.skills {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10rem);
+}
+
 .skills__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

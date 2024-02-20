@@ -2,8 +2,6 @@
   opacity: 1;
 }
 .bio {
-  overflow: hidden;
-  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +9,8 @@
   row-gap: 2rem;
   font-size: var(--font-size-22);
   font-weight: var(--font-weight-bold);
+  overflow: hidden;
+  opacity: 0;
   transform: translateY(-8rem);
   margin-top: 5rem;
 }

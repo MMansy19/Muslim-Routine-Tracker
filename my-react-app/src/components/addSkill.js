@@ -1,6 +1,6 @@
 // skillFunctions.js
 
-const addSkill = (nameInput, detailsInput, typeInput, setSkillsArray, setNameError, setDetailsError, setTypeError, setSuccessAlert) => {
+const AddSkill = (nameInput, detailsInput, typeInput, setSkillsArray, setNameError, setDetailsError, setTypeError, setSuccessAlert) => {
     // Validation
     if (!nameInput) {
         setNameError(true);
@@ -35,4 +35,4 @@ const addSkill = (nameInput, detailsInput, typeInput, setSkillsArray, setNameErr
     }
 };
 
-export default addSkill;
+export default AddSkill;

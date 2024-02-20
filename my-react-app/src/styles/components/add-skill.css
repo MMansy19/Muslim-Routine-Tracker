@@ -26,6 +26,21 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10rem);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0rem);
+  transition: 3s;
+}
+@media (max-width: 700px) {
+  .visible {
+    transform: translateY(0rem);
+    row-gap: 6rem;
+  }
 }
 
 .card {
@@ -41,12 +56,17 @@
 
 .card-register {
   padding: 1rem 3rem;
-  /* row-gap: 0; */
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10rem);
 }
 
 .card-login {
   padding: 2.8rem 3rem;
   row-gap: 2rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10rem);
 }
 
 .card__form {

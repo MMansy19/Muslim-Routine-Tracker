@@ -3,9 +3,12 @@ import { CSVLink } from 'react-csv';
 import * as XLSX from 'xlsx';
 import ButtonWithCalendar from "./components/button.js"
 import ProgressLine from "./components/progress.js";
-import addSkill from "./components/addSkill.js";
+import AddSkill from "./components/addSkill.js";
+import ShowComponent  from "./components/showComponentFunc.js";
 
 const SkillsSection = ({ showAddSkill , showSkills }) => {
+    const [isVisibleSkills, setIsVisibleSkills] = useState(false); // State to manage visibility
+    const [isVisibleAddSkill, setIsVisibleAddSkill] = useState(false); // State to manage visibility
     const [skillsArray, setSkillsArray] = useState([]);
     const [showOptions, setShowOptions] = useState(false);
     const [nameInput, setNameInput] = useState('');
@@ -144,6 +147,10 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
 
     }, []);
 
+    // Show the component after a delay
+    ShowComponent(() => {setIsVisibleSkills( showSkills? true : false );});
+    ShowComponent(() => {setIsVisibleAddSkill( showAddSkill? true : false );});
+      
 // Function to handle Excel download
     const handleExcelDownload = () => {
         const worksheet = XLSX.utils.json_to_sheet(skillsArray);
@@ -197,7 +204,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
 
 
     const handleAddSkill = () => {
-        addSkill(nameInput, detailsInput, typeInput, setSkillsArray, setNameError, setDetailsError, setTypeError, setSuccessAlert);
+        AddSkill(nameInput, detailsInput, typeInput, setSkillsArray, setNameError, setDetailsError, setTypeError, setSuccessAlert);
             setTimeout(() => {
                 // Clear input fields after adding the skill
                 setNameInput('');
@@ -350,7 +357,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
 
 
              {/* Start Day Picker (calender) */}
-             {showSkills && <ProgressLine progress={((counters.done + counters.circle)/skillsArray.length)*100}/>}
+             {(showSkills || showAddSkill) && <ProgressLine progress={((counters.done + counters.circle)/skillsArray.length)*100}/>}
              {/* End Day Picker (calender) */}
 
              {/* Start Day Picker (calender) */}
@@ -359,7 +366,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
              {/* End Day Picker (calender) */}
 
              {/* Start Skills */}
-            {showSkills && <section  id="skills" className="skills section ">
+            {showSkills  && <section  id="skills" className={`skills section  ${isVisibleSkills ? 'visible' : ''}`}>
                 <h2 className="h2__heading">
                     أورادك
                     <br/>
@@ -427,7 +434,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                     <button className={`skills__button ${filterType === 'غيره' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('غيره')}>غيره</button>
                 </div>
 
-                <ul className={`skills__list ${filterType}`}>
+                <ul className= {`skills__list ${filterType}`}>
                     {skillItems}
                 </ul>
 
@@ -435,7 +442,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
             {/* End Skills */}
 
             {/* Start Add Skill */}
-                {showAddSkill && <section  id="add_skill" className="add-skill skills section section--with-bg">
+                {showAddSkill && <section  id="add_skill" className={`add-skill  ${isVisibleAddSkill ? 'visible' : ''}`}>
                     <h2 className="h2__heading">
                         أضف وردًا
                         &nbsp;

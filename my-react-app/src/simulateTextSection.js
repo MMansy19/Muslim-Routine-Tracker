@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ShowComponent  from "./components/showComponentFunc.js";
 const BioSection = () => {
   const [dynamicText, setDynamicText] = useState('');
   const [isVisible, setIsVisible] = useState(false); // State to manage visibility
@@ -62,13 +62,14 @@ const BioSection = () => {
     };
 
     // Show the component after a delay
-    const showComponent = setTimeout(() => {
+    ShowComponent(() => {
       setIsVisible(true);
-    }, 500) && setTimeout(() => {
+      setTimeout(() => {
       typeTexts(); // Start typing text
-    }, 2000); // Adjust the delay as needed
+  }, 1500);
+    });
 
-    return () => clearInterval(showComponent);
+    return () => clearInterval(ShowComponent);
   }, []); // Only run once on component mount
 
   return (
