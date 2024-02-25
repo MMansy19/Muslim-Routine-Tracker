@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import { CSVLink } from 'react-csv';
 import * as XLSX from 'xlsx';
-import ButtonWithCalendar from "./components/button.js"
+// import ButtonWithCalendar from "./components/button.js"
 import ProgressLine from "./components/progress.js";
 import AddSkill from "./components/addSkill.js";
 import ShowComponent  from "./components/showComponentFunc.js";
@@ -30,6 +30,8 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
         notDone: 0,
         circle: 0
     });
+
+
 
     // Calculate counters whenever activeButtons changes
     useEffect(() => {
@@ -88,63 +90,12 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
             details: "صلاة العشاء جماعة في المسجد",
             type: "الصلاة",
         },
-            {
-            name: "القيام",
-            details: "ركعة الوتر",
-            type: "الصلاة",
-        },
-            {
-            name: "الضحى",
-            details: "ركعتي الضحى قبل الذهاب للكلية",
-            type: "الصلاة",
-        },
-            {
-            name: "الحوقلة",
-            details: "لا حول ولا قوة إلا بالله مئة مرة",
-            type: "الذكر",
-        },
-            {
-            name: "أذكار الصباح",
-            details: "أذكار الصباح بعد الفجر",
-            type: "الذكر",
-        },
-            {
-            name: "أذكار المساء",
-            details: "أذكار المساء بعد العصر",
-            type: "الذكر",
-        },
-            {
-            name: "حفظ القرآن",
-            details: "حفظ نصف صفحة يوميا بعد الفجر",
-            type: "القرآن",
-        },
-            {
-            name: "ورد القرآن",
-            details: "قراءة عشر صفحات من كتاب الله",
-            type: "القرآن",
-        },
-        {
-            name: "الكلية",
-            details: "مذاكرة 5 ساعات للكلية",
-            type: "التعلم",
-        },
-        {
-            name: "القراءة",
-            details: "قراءة عشر صفحات من كتاب لأنك الله",
-            type: "التعلم",
-        },
-        {
-            name: "الرياضة",
-            details: "تمرين عشر دقائق في المنزل صباحًا",
-            type: "غيره",
-        },
         ]);
         // Initialize skills array with a new date property for each item
         setSkillsArray(prevSkillsArray => prevSkillsArray.map(skill => ({
             ...skill,
         state:'',
         })));
-
     }, []);
 
     // Show the component after a delay
@@ -213,6 +164,18 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
             }, 1000);
 
     };
+    // Retrieve skillsArray from local storage on component mount
+    useEffect(() => {
+        const storedSkills = localStorage.getItem("skillsArray");
+        if (storedSkills) {
+            setSkillsArray(JSON.parse(storedSkills));
+        }
+    }, []);
+
+    // Save skillsArray to local storage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("skillsArray", JSON.stringify(skillsArray));
+    }, [skillsArray]);
 
     const handleSkillToggle = (skillName) => {
         // Toggle highlighting for the clicked skill
@@ -362,13 +325,17 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
 
              {/* Start Day Picker (calender) */}
                     {showSkills && <br/>}
-             {showSkills && <ButtonWithCalendar/>}
+             {/* {showSkills && <ButtonWithCalendar/>} */}
              {/* End Day Picker (calender) */}
 
              {/* Start Skills */}
             {showSkills  && <section  id="skills" className={`skills section  ${isVisibleSkills ? 'visible' : ''}`}>
                 <h2 className="h2__heading">
-                    أورادك
+                    أورادك:
+                    &nbsp;   
+                    <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
+                    {skillsArray.length}
+                    <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
                     <br/>
                     
 
@@ -387,12 +354,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                     </span>
                 </div>
             )}
-                    <br/>
-                    &nbsp;   
-                    <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
-                    {skillsArray.length}
-                    <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
-                    &nbsp;
+
                 </h2>
             
             {/* Start Counters */}
@@ -460,10 +422,6 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                                     placeholder="القرآن"
                                     value={nameInput}
                                     onChange={(e) => setNameInput(e.target.value)}
-                                    // onFocus={() => inputName?.classList.add('border-blue')}
-                                    // onBlur={() => inputName?.classList.remove('border-blue', 'border-red')}
-                                    // ref={inputName}
-
                                 />
                                 {nameError && <span className="card__errorMessage">رجاء اكتب اسم الورد</span>}
                             </div>

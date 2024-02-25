@@ -33,6 +33,7 @@ const AddSkill = (nameInput, detailsInput, typeInput, setSkillsArray, setNameErr
             setSuccessAlert(null);
         }, 3000); // Remove the alert after 3 seconds
     }
+    
 };
 
 export default AddSkill;

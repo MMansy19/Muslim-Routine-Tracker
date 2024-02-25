@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* PROGRESS LINE */
 .progress-line-container {
   position: sticky; /* Change from fixed to sticky */
@@ -16,24 +17,27 @@
   border-radius: 5px; /* Rounded corners */
   transition: width 1s ease; /* Smooth transition of width over 0.5 seconds */
 }
-/* End of PROGRESS LINE */
 
+/* End of PROGRESS LINE */
 #skills {
   grid-template-columns: 1fr;
   margin: 0 auto 10rem auto;
   max-width: 1000px;
 }
+
 .skills {
   overflow: hidden;
   opacity: 0;
   transform: translateY(-10rem);
 }
+
 .skills__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 1rem;
 }
+
 .skills__item {
   display: flex;
   flex-direction: column;
@@ -51,6 +55,7 @@
   text-shadow: 0 0 0.6rem transparent;
   transition: text-shadow 0.5s;
 }
+
 .skills__item:hover {
   text-shadow: 0 0 0.2rem var(--color-green);
   transition: 1s;
@@ -62,30 +67,34 @@
   border-radius: 1rem;
   transition: 1s;
 }
+
 .skills__title {
   color: var(--color-blue);
   font-family: var(--font-family-amiri);
-
   font-size: var(--font-size-22);
   font-weight: var(--font-weight-semi-bold);
 }
+
 .skills__years {
   display: inline-block;
   font-size: var(--font-size-14);
   text-align: center;
 }
+
 .skills__state {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   font-size: var(--font-size-14);
 }
+
 .skills__state-item {
   border-radius: 50%;
   padding: 0.8rem 0.8rem 0 0.8rem;
   background-color: wheat;
   font-size: var(--font-size-14);
 }
+
 /* .skills__state-done:hover {
   background-color: rgb(182, 248, 83);
 }
@@ -98,12 +107,15 @@
 .done-clicked {
   background-color: var(--color-light-green);
 }
+
 .circle-clicked {
   background-color: var(--color-purple);
 }
+
 .not-done-clicked {
   background-color: var(--color-red);
 }
+
 .delete-icon {
   margin-left: 27%;
   width: 25px;
@@ -118,33 +130,41 @@
   gap: 1rem;
   justify-content: center;
 }
+
 .skills__button {
   border: 0.01rem solid var(--color-text);
   border-radius: 0.4rem;
   padding: 0.2rem 1rem;
   color: var(--color-text);
 }
+
 .skills__button--isActive {
   background-color: var(--color-link-bg);
   color: var(--color-white);
   color: var(--color-background);
 }
-.skills__list.الصلاة li:not([data-type="الصلاة"]) {
+
+.skills__list.الصلاة li:not([data-type=الصلاة]) {
   display: none;
 }
-.skills__list.الذكر li:not([data-type="الذكر"]) {
+
+.skills__list.الذكر li:not([data-type=الذكر]) {
   display: none;
 }
-.skills__list.القرآن li:not([data-type="القرآن"]) {
+
+.skills__list.القرآن li:not([data-type=القرآن]) {
   display: none;
 }
-.skills__list.الدعاء li:not([data-type="الدعاء"]) {
+
+.skills__list.الدعاء li:not([data-type=الدعاء]) {
   display: none;
 }
-.skills__list.التعلم li:not([data-type="التعلم"]) {
+
+.skills__list.التعلم li:not([data-type=التعلم]) {
   display: none;
 }
-.skills__list.غيره li:not([data-type="غيره"]) {
+
+.skills__list.غيره li:not([data-type=غيره]) {
   display: none;
 }
 
@@ -183,7 +203,6 @@
     opacity: 1;
   }
 }
-
 .confirm-dialog {
   position: fixed;
   background-color: #fff;
@@ -216,6 +235,7 @@
   background-color: #ccc;
   margin-right: 10px;
 }
+
 .alert {
   position: fixed;
   top: -3rem;
@@ -239,6 +259,7 @@
   background-color: #f7ced2;
   color: var(--color-red);
 }
+
 .alert-done {
   background-color: #b7ecac;
   color: green;
@@ -248,4 +269,5 @@
   background-color: #e1c3f3;
   color: var(--color-dark-purple);
 }
-/* /End Alert Styling */
+
+/* /End Alert Styling *//*# sourceMappingURL=skills.css.map */

@@ -455,8 +455,8 @@ html:has(.toggle__checkbox:checked) .progress-line {
 /* End of PROGRESS LINE */
 #skills {
   grid-template-columns: 1fr;
-  margin: 0 auto 10rem;
-  max-width: 1400px;
+  margin: 0 auto 10rem auto;
+  max-width: 1000px;
 }
 
 .skills {
@@ -468,7 +468,8 @@ html:has(.toggle__checkbox:checked) .progress-line {
 .skills__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
+  gap: 2rem;
+  margin-bottom: 1rem;
 }
 
 .skills__item {
@@ -758,6 +759,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
   justify-content: center;
   border-radius: 1rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 8rem;
 }
 
 .card-register {
