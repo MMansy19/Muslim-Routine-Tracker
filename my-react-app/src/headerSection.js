@@ -1,5 +1,5 @@
 
-const HeaderSection = ({ loginFunction, registrationFunction, skillsFunction, addSkillFunction, contactFunction, mainFunction }) => {
+const HeaderSection = ({  skillsFunction, addSkillFunction, contactFunction, mainFunction }) => {
     const handleNavigationClick = () => {
     const checkbox = document.getElementById('menu');
     setTimeout(() => {
@@ -26,12 +26,6 @@ const HeaderSection = ({ loginFunction, registrationFunction, skillsFunction, ad
           </li>
           <li>
             <a href="#add_skill" className="navigation__link add_skill" onClick={() => { addSkillFunction(); handleNavigationClick(); }}>أضف وردًا</a>
-          </li>
-          <li>
-            <a href="#login" className="navigation__link navigation__login" onClick={() => { loginFunction(); handleNavigationClick(); }}>تسجيل الدخول</a>
-          </li>
-          <li>
-            <a href="#register" className="navigation__link navigation__login" onClick={() => { registrationFunction(); handleNavigationClick(); }}>إنشاء حساب</a>
           </li>
           <li>
             <a href="#contact" className="navigation__link navigation__contact" onClick={() => { contactFunction(); handleNavigationClick(); }}>التواصل</a>
