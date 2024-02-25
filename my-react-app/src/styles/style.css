@@ -4,13 +4,13 @@
   --gutter: 0.5rem;
   --color-black: #000;
   --color-light-black: #1a1a1a;
-  /* color: #252525; */
   --color-gray: gray;
   --color-dark-gray: #333333;
   --color-light-gray: #f5f5f5;
   --color-white: white;
   --color-wheat: wheat;
   --color-gold: #ffd700;
+  --color-gold-gradient: linear-gradient(to bottom right, #ff9900, #ddff00);
   --color-yellow: yellow;
   --color-blue: #000080;
   --color-light-blue: #1d9bf0;
@@ -138,7 +138,6 @@ body {
   font-size: var(--font-size-40);
   font-weight: var(--font-weight-bold);
   grid-column: 1/-1;
-  margin-bottom: 3rem;
   text-transform: uppercase;
 }
 
@@ -209,6 +208,11 @@ html:has(.toggle__checkbox:checked) ::-webkit-scrollbar-thumb {
 }
 html:has(.toggle__checkbox:checked) .bio__title {
   color: var(--color-gold);
+  background-image: linear-gradient(to right, #ffd700, #ff9900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hide original text */
+  background-clip: text;
+  color: transparent;
 }
 html:has(.toggle__checkbox:checked) .card {
   background: var(--color-light-black);
@@ -241,7 +245,7 @@ html:has(.toggle__checkbox:checked) .progress-line {
   justify-content: center;
   background-color: var(--color-background);
   z-index: 2;
-  max-width: 1600px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -591,6 +595,10 @@ html:has(.toggle__checkbox:checked) .progress-line {
 }
 
 .skills__list.الدعاء li:not([data-type=الدعاء]) {
+  display: none;
+}
+
+.skills__list.الصيام li:not([data-type=الصيام]) {
   display: none;
 }
 
@@ -971,6 +979,9 @@ form {
     grid-template-columns: repeat(2, 1fr);
     margin: 0 1rem;
     gap: 2rem;
+  }
+  .skills__button {
+    font-size: var(--font-size-12);
   }
   .delete-icon {
     margin-left: 42%;

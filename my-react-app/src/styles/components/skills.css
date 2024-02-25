@@ -160,6 +160,10 @@
   display: none;
 }
 
+.skills__list.الصيام li:not([data-type=الصيام]) {
+  display: none;
+}
+
 .skills__list.التعلم li:not([data-type=التعلم]) {
   display: none;
 }

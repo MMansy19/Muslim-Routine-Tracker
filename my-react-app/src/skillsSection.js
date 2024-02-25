@@ -6,7 +6,7 @@ import ProgressLine from "./components/progress.js";
 import AddSkill from "./components/addSkill.js";
 import ShowComponent  from "./components/showComponentFunc.js";
 
-const SkillsSection = ({ showAddSkill , showSkills }) => {
+const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
     const [isVisibleSkills, setIsVisibleSkills] = useState(false); // State to manage visibility
     const [isVisibleAddSkill, setIsVisibleAddSkill] = useState(false); // State to manage visibility
     const [skillsArray, setSkillsArray] = useState([]);
@@ -354,7 +354,6 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                     </span>
                 </div>
             )}
-
                 </h2>
             
             {/* Start Counters */}
@@ -392,6 +391,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                     <button className={`skills__button ${filterType === 'القرآن' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('القرآن')}>القرآن</button>
                     <button className={`skills__button ${filterType === 'الذكر' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الذكر')}>الذكر</button>
                     <button className={`skills__button ${filterType === 'الدعاء' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الدعاء')}>الدعاء</button>
+                    <button className={`skills__button ${filterType === 'الصيام' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الصيام')}>الصيام</button>
                     <button className={`skills__button ${filterType === 'التعلم' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('التعلم')}>التعلم</button>
                     <button className={`skills__button ${filterType === 'غيره' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('غيره')}>غيره</button>
                 </div>
@@ -399,13 +399,20 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                 <ul className= {`skills__list ${filterType}`}>
                     {skillItems}
                 </ul>
+                        <div className="card__separator">
+                            <button   className="card__button" onClick={() => { addSkillFunction();}}>
+                                <a href="#add_skill">
+                                أضف وردًا
+                                </a>
+                                </button>
 
+                        </div>
             </section>}
             {/* End Skills */}
 
             {/* Start Add Skill */}
                 {showAddSkill && <section  id="add_skill" className={`add-skill  ${isVisibleAddSkill ? 'visible' : ''}`}>
-                    <h2 className="h2__heading">
+                    <h2 id="add__skill"className="h2__heading">
                         أضف وردًا
                         &nbsp;
                         <img className="contact__social" src="./images/pray.png" alt="pray" width="25px" />
@@ -452,6 +459,7 @@ const SkillsSection = ({ showAddSkill , showSkills }) => {
                                     <option value="القرآن">القرآن</option>
                                     <option value="الذكر">الذكر</option>
                                     <option value="الدعاء">الدعاء</option>
+                                    <option value="الصيام">الصيام</option>
                                     <option value="التعلم">التعلم</option>
                                     <option value="غيره">غيره</option>
                                 </select>

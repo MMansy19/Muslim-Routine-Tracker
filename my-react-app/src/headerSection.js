@@ -21,17 +21,17 @@ const HeaderSection = ({ loginFunction, registrationFunction, skillsFunction, ad
           <li>
             <a href="#bio" className="navigation__link navigation__bio" onClick={() => { mainFunction(); handleNavigationClick(); }}>الصفحة الرئيسية</a>
           </li>
+          <li>    
+            <a href="#calendar" className="navigation__link navigation__skills" onClick={() => { skillsFunction(); handleNavigationClick(); }}>أورادك</a>
+          </li>
+          <li>
+            <a href="#add_skill" className="navigation__link add_skill" onClick={() => { addSkillFunction(); handleNavigationClick(); }}>أضف وردًا</a>
+          </li>
           <li>
             <a href="#login" className="navigation__link navigation__login" onClick={() => { loginFunction(); handleNavigationClick(); }}>تسجيل الدخول</a>
           </li>
           <li>
             <a href="#register" className="navigation__link navigation__login" onClick={() => { registrationFunction(); handleNavigationClick(); }}>إنشاء حساب</a>
-          </li>
-          <li>
-            <a href="#calendar" className="navigation__link navigation__skills" onClick={() => { skillsFunction(); handleNavigationClick(); }}>أورادك</a>
-          </li>
-          <li>
-            <a href="#add_skill" className="navigation__link add_skill" onClick={() => { addSkillFunction(); handleNavigationClick(); }}>أضف وردًا</a>
           </li>
           <li>
             <a href="#contact" className="navigation__link navigation__contact" onClick={() => { contactFunction(); handleNavigationClick(); }}>التواصل</a>

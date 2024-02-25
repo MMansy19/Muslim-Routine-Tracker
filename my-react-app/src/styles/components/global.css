@@ -3,13 +3,13 @@
   --gutter: 0.5rem;
   --color-black: #000;
   --color-light-black: #1a1a1a;
-  /* color: #252525; */
   --color-gray: gray;
   --color-dark-gray: #333333;
   --color-light-gray: #f5f5f5;
   --color-white: white;
   --color-wheat: wheat;
   --color-gold: #ffd700;
+  --color-gold-gradient: linear-gradient(to bottom right, #ff9900, #ddff00);
   --color-yellow: yellow;
   --color-blue: #000080;
   --color-light-blue: #1d9bf0;
@@ -137,7 +137,6 @@ body {
   font-size: var(--font-size-40);
   font-weight: var(--font-weight-bold);
   grid-column: 1/-1;
-  margin-bottom: 3rem;
   text-transform: uppercase;
 }
 
@@ -208,6 +207,11 @@ html:has(.toggle__checkbox:checked) ::-webkit-scrollbar-thumb {
 }
 html:has(.toggle__checkbox:checked) .bio__title {
   color: var(--color-gold);
+  background-image: linear-gradient(to right, #ffd700, #ff9900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Hide original text */
+  background-clip: text;
+  color: transparent;
 }
 html:has(.toggle__checkbox:checked) .card {
   background: var(--color-light-black);
