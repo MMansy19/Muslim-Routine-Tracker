@@ -51,7 +51,7 @@ function App() {
 
 
       {/* Start Skills Section */}
-      {(showAddSkill || showSkills) && < SkillsSection showSkills={showSkills} setShowSkills={setShowSkills} showAddSkill={showAddSkill} setShowAddSkill={setShowAddSkill} addSkillFunction={addSkillFunction}/>}
+      {(showAddSkill || showSkills) && < SkillsSection showSkills={showSkills} setShowSkills={setShowSkills} showAddSkill={showAddSkill} setShowAddSkill={setShowAddSkill} addSkillFunction={addSkillFunction}  skillsFunction={skillsFunction}/>}
       {/* End Skills Section */}
 
       {/* Start Contact */}

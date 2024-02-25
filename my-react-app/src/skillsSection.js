@@ -1,12 +1,11 @@
 import React, { useState, useEffect  } from 'react';
 import { CSVLink } from 'react-csv';
 import * as XLSX from 'xlsx';
-// import ButtonWithCalendar from "./components/button.js"
 import ProgressLine from "./components/progress.js";
 import AddSkill from "./components/addSkill.js";
 import ShowComponent  from "./components/showComponentFunc.js";
 
-const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
+const SkillsSection = ({ showAddSkill, showSkills, skillsFunction, addSkillFunction }) => {
     const [isVisibleSkills, setIsVisibleSkills] = useState(false); // State to manage visibility
     const [isVisibleAddSkill, setIsVisibleAddSkill] = useState(false); // State to manage visibility
     const [skillsArray, setSkillsArray] = useState([]);
@@ -392,7 +391,6 @@ const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
                     <button className={`skills__button ${filterType === 'الذكر' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الذكر')}>الذكر</button>
                     <button className={`skills__button ${filterType === 'الدعاء' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الدعاء')}>الدعاء</button>
                     <button className={`skills__button ${filterType === 'الصيام' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('الصيام')}>الصيام</button>
-                    <button className={`skills__button ${filterType === 'التعلم' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('التعلم')}>التعلم</button>
                     <button className={`skills__button ${filterType === 'غيره' ? 'skills__button--isActive' : ''}`} onClick={() => handleFilterButtonClick('غيره')}>غيره</button>
                 </div>
 
@@ -405,7 +403,6 @@ const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
                                 أضف وردًا
                                 </a>
                                 </button>
-
                         </div>
             </section>}
             {/* End Skills */}
@@ -460,7 +457,6 @@ const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
                                     <option value="الذكر">الذكر</option>
                                     <option value="الدعاء">الدعاء</option>
                                     <option value="الصيام">الصيام</option>
-                                    <option value="التعلم">التعلم</option>
                                     <option value="غيره">غيره</option>
                                 </select>
                                 {typeError && <span className="card__errorMessage">رجاء كتابة نوع الورد</span>}
@@ -469,6 +465,11 @@ const SkillsSection = ({ showAddSkill, showSkills, addSkillFunction }) => {
                         <div className="card__separator">
                             <button className="card__button" onClick={handleAddSkill}>إضافة</button>
                         </div>
+                            <button   className="bio__links h2__heading" onClick={() => { skillsFunction();}}>
+                                <a href="#add_skill">
+                                العودة للأوراد
+                                </a>
+                                </button>
                     </div>
                 </section>}
             {/* End Add Skill */}
