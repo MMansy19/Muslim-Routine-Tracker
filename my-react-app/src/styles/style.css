@@ -345,18 +345,6 @@ html:has(.toggle__checkbox:checked) .progress-line {
   background-color: var(--color-green);
 }
 
-.login_section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 5rem;
-  margin: 0 auto 5rem auto;
-  width: 100%;
-  padding: 3rem;
-  max-width: 1400px;
-}
-
 .in-view {
   opacity: 1;
 }
@@ -602,10 +590,6 @@ html:has(.toggle__checkbox:checked) .progress-line {
   display: none;
 }
 
-.skills__list.التعلم li:not([data-type=التعلم]) {
-  display: none;
-}
-
 .skills__list.غيره li:not([data-type=غيره]) {
   display: none;
 }
@@ -715,24 +699,59 @@ html:has(.toggle__checkbox:checked) .progress-line {
 /* /End Alert Styling */
 .say-hi-link,
 .card__button {
+  background-color: rgba(76, 175, 79, 0.6196078431);
+  border: none;
   color: var(--color-white);
-  padding: 0.4rem 1.8rem;
-  border-radius: 0.5rem;
-  font-weight: var(--font-weight-bold);
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  margin: 0 0.2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
   z-index: 1;
-  background: var(--color-purple);
-  font-size: var(--font-size-22);
+  margin-top: 1rem;
 }
 
 .say-hi-link:hover,
 .card__button:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-  background: var(--color-dark-purple);
-  box-shadow: 0rem 0rem 0.5rem 0 rgb(126, 78, 214);
+  background-color: #45a049;
+}
+
+.say-hi-link:active:hover,
+.card__button:active:hover {
+  background-color: #005f7f;
+}
+
+.say-hi-link:active,
+.back__button:active,
+.card__button:active {
+  transform: scale(0.98);
+  transform: translateY(0.2rem);
+}
+
+.back__button {
+  background-color: inherit;
+  border: 1px solid rgba(128, 128, 128, 0.842);
+  color: rgba(128, 128, 128, 0.842);
+  padding: 1.5rem 3.2rem;
+  text-align: center;
   text-decoration: none;
+  font-size: 1.6rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+  margin-top: 1rem;
+}
+
+.back__button:hover {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  text-decoration: underline;
 }
 
 .add-skill {
@@ -863,15 +882,20 @@ html:has(.toggle__checkbox:checked) .progress-line {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   margin: 2rem 0;
+  gap: 1rem;
 }
 
 .card__separator:before {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 0.1rem;
+  width: 80%;
+  height: 1px;
+  opacity: 0.5;
+  top: 0;
   background: var(--color-dark-white);
+  z-index: -1;
 }
 
 form {

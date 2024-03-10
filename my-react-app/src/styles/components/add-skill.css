@@ -1,6 +1,6 @@
 .say-hi-link,
 .card__button {
-  background-color: #4caf4f9e;
+  background-color: rgba(76, 175, 79, 0.6196078431);
   border: none;
   color: var(--color-white);
   padding: 1.5rem 3.2rem;
@@ -20,16 +20,19 @@
 .card__button:hover {
   background-color: #45a049;
 }
+
 .say-hi-link:active:hover,
 .card__button:active:hover {
   background-color: #005f7f;
 }
+
 .say-hi-link:active,
 .back__button:active,
 .card__button:active {
   transform: scale(0.98);
   transform: translateY(0.2rem);
 }
+
 .back__button {
   background-color: inherit;
   border: 1px solid rgba(128, 128, 128, 0.842);
@@ -45,6 +48,7 @@
   z-index: 1;
   margin-top: 1rem;
 }
+
 .back__button:hover {
   border: 1px solid var(--color-white);
   color: var(--color-white);
@@ -61,15 +65,19 @@
   opacity: 0;
   transform: translateY(-10rem);
 }
+
 .visible {
   opacity: 1;
   transform: translateY(0rem);
   transition: 3s;
-  @media (max-width: 700px) {
+}
+@media (max-width: 700px) {
+  .visible {
     transform: translateY(0rem);
     row-gap: 6rem;
   }
 }
+
 .card {
   width: 100%;
   padding: 3rem;
@@ -81,12 +89,14 @@
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
   margin-bottom: 8rem;
 }
+
 .card-register {
   padding: 1rem 3rem;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-10rem);
 }
+
 .card-login {
   padding: 2.8rem 3rem;
   row-gap: 2rem;
@@ -114,6 +124,7 @@
   color: var(--color-gray);
   margin-bottom: 1rem;
 }
+
 .card__input {
   padding: 1rem;
   border: 1px solid var(--color-light-gray);
@@ -186,4 +197,4 @@
   top: 0;
   background: var(--color-dark-white);
   z-index: -1;
-}
+}/*# sourceMappingURL=add-skill.css.map */

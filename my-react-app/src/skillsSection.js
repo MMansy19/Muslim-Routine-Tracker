@@ -160,7 +160,7 @@ const SkillsSection = ({ showAddSkill, showSkills, skillsFunction, addSkillFunct
                 setNameInput('');
                 setDetailsInput('');
                 setTypeInput('');
-            }, 1000);
+            }, 100);
 
     };
     // Retrieve skillsArray from local storage on component mount
@@ -464,12 +464,12 @@ const SkillsSection = ({ showAddSkill, showSkills, skillsFunction, addSkillFunct
                         </form>
                         <div className="card__separator">
                             <button className="card__button" onClick={handleAddSkill}>إضافة</button>
-                        </div>
-                            <button   className="bio__links h2__heading" onClick={() => { skillsFunction();}}>
+                            <button className="back__button" onClick={() => { skillsFunction();}}>
                                 <a href="#add_skill">
                                 العودة للأوراد
                                 </a>
                                 </button>
+                        </div>
                     </div>
                 </section>}
             {/* End Add Skill */}
