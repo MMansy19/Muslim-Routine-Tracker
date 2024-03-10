@@ -2,6 +2,7 @@
   --container-width: 75rem;
   --gutter: 0.5rem;
   --color-black: #000;
+  --color-background-dark: #282c34;
   --color-light-black: #1a1a1a;
   --color-gray: gray;
   --color-dark-gray: #333333;
@@ -183,7 +184,7 @@ ol {
 }
 
 html:has(.toggle__checkbox:checked) {
-  --color-background: var(--color-black);
+  --color-background: var(--color-background-dark);
   --color-text: var(--color-wheat);
   --color-box-img: var(--color-gold);
   --color-link-bg: var(--color-green);
@@ -191,17 +192,17 @@ html:has(.toggle__checkbox:checked) {
   --color-input-border: var(--color-gold);
   --color-green-gradient: linear-gradient(to bottom right, #2642a5, #61cce9);
   ::-webkit-scrollbar-track {
-    background: #333; /* Dark gray background color in dark mode */
+    background: #333;
   }
   ::-webkit-scrollbar-thumb {
-    background: #666; /* Darker gray color for scrollbar thumb in dark mode */
+    background: #666;
   }
 
   .bio__title {
     color: var(--color-gold);
     background-image: linear-gradient(to right, #ffd700, #ff9900);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Hide original text */
+    -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
