@@ -20,7 +20,7 @@
 
 #skills {
   grid-template-columns: 1fr;
-  margin: 0 auto 10rem auto;
+  margin: 3rem auto 10rem auto;
   max-width: 1000px;
 }
 .skills {
@@ -34,6 +34,21 @@
   gap: 2rem;
   margin-bottom: 1rem;
 }
+
+.skillsNumber {
+  padding: 0 2rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: #42b883;
+  color: white;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Hover effect */
+.skillsNumber:hover {
+  background-color: #2e7d32; /* New background color on hover */
+}
+
 .skills__item {
   display: flex;
   flex-direction: column;
@@ -86,15 +101,7 @@
   background-color: wheat;
   font-size: var(--font-size-14);
 }
-/* .skills__state-done:hover {
-  background-color: rgb(182, 248, 83);
-}
- .skills__state-notDone:hover {
-  background-color: #f76363;
-}
-.skills__state-circle:hover {
-  background-color: #976df1;
-}  */
+
 .done-clicked {
   background-color: var(--color-light-green);
 }
