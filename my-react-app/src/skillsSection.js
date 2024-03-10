@@ -330,11 +330,11 @@ const SkillsSection = ({ showAddSkill, showSkills, skillsFunction, addSkillFunct
              {/* Start Skills */}
             {showSkills  && <section  id="skills" className={`skills section  ${isVisibleSkills ? 'visible' : ''}`}>
                 <h2 className="h2__heading">
-                    أورادك:
-                    &nbsp;   
                     <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
-                    {skillsArray.length}
-                    <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
+                    &nbsp;أورادك&nbsp;   
+                     <img className="contact__social" src="./images/star-svgrepo-com.svg" alt="pray" width="25px" />
+                    &nbsp;
+                    <span className="skillsNumber">{skillsArray.length}</span>
                     <br/>
                     
 
